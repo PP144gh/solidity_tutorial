@@ -287,26 +287,41 @@ So it's important to remember that just because a DApp is on Ethereum does not a
     kittyContract = KittyInterface(_address);
   }
 
-function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) public {
-    require(msg.sender == zombieToOwner[_zombieId]); //comparing hexadecimal numbers, eth address start with 0x and then have a hexadecimal number. 0x is a way to tell programs that is is a hexadecimal number
+
+  // 1. Define `_triggerCooldown` function here
+  function _triggerCooldown(Zombie storage _zombie) internal {
+    _zombie.readyTime = uint32(now + cooldownTime);
+  }
+
+  // 2. Define `_isReady` function here
+  function _isReady(Zombie storage _zombie) internal view returns (bool) {
+    return (_zombie.readyTime <= now);
+  }
+
+
+  // 1. Make this function internal (only needs to be called by feedOnKitty or else can be exploitable)
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal {
+    require(msg.sender == zombieToOwner[_zombieId]);
     Zombie storage myZombie = zombies[_zombieId];
-    // start here
-     _targetDna = _targetDna % dnaModulus;
-    uint newDna = (myZombie.dna + _targetDna) / 2 ;
-     if (keccak256(abi.encodePacked(_species)) == keccak256(abi.encodePacked("kitty"))) {
-        newDna = newDna - newDna % 100 + 99; // 543 %10 gives 3, 543 %100 gives 43, nr of zeros of quotient = last # of digits of number. this changes last two digits to 99
-        
+    // 2. Add a check for `_isReady` here
+    require(_isReady(myZombie));
+    _targetDna = _targetDna % dnaModulus;
+    uint newDna = (myZombie.dna + _targetDna) / 2;
+    if (keccak256(abi.encodePacked(_species)) == keccak256(abi.encodePacked("kitty"))) {
+      newDna = newDna - newDna % 100 + 99;
     }
+    _createZombie("NoName", newDna);
+    // 3. Call `_triggerCooldown`
+    _triggerCooldown(myZombie);
+  }
 
 
 
-
-    _createZombie("NoName", newDna); //private? change to internal
     // In addition to public and private, Solidity has two more types of visibility for functions: internal and external.
     //internal is the same as private, except that it's also accessible to contracts that inherit from this contract. (Hey, that sounds like what we want here!).
     //external is similar to public, except that these functions can ONLY be called outside the contract — they can't be called by other functions inside that contract. We'll talk about why you might want to use external vs public later.
       
-}
+
 
 
   function feedOnKitty (uint _zombieId, uint _kittyId) public {

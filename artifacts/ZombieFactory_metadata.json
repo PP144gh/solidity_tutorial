@@ -159,6 +159,16 @@
 						"internalType": "uint256",
 						"name": "dna",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "level",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "readyTime",
+						"type": "uint32"
 					}
 				],
 				"payable": false,
@@ -214,10 +224,10 @@
 			]
 		},
 		"zombiefactory.sol": {
-			"keccak256": "0xec45cb92fbd96d105047384d22d70ab90262d58a22b2704682eddb45265da0ad",
+			"keccak256": "0x607307ee403279f63d24be81ea04a9da7188028db2682247cf8e0bf8475dbb7f",
 			"urls": [
-				"bzz-raw://570b1ba4aabbb2866f1a13b91c6e0cb86c024a9309b648ebbef1b990db062eae",
-				"dweb:/ipfs/QmeH8GYh6jKMHxVv2GiTDf9fe4XEvG2Uq77aARudzBrfBN"
+				"bzz-raw://94d05358609d39649a070ad452526eab24b3f22daaea89f33c595dcf6d7cbd48",
+				"dweb:/ipfs/QmNU3afDjuf8Jcy8c67cXtubT497FGdXNeoexYkPSrN6hK"
 			]
 		}
 	},

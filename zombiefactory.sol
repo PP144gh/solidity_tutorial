@@ -35,11 +35,8 @@ function updateTimestamp() public {
 function fiveMinutesHavePassed() public view returns (bool) {
   return (now >= (lastUpdated + 5 minutes));
 }
-
-
-
-
     */
+   uint cooldownTime = 1 days;
 
     //struct
     struct Zombie {
@@ -95,7 +92,10 @@ Call this function like: eatHamburgers("vitalik", 100);
    function _createZombie(string memory _name, uint _dna) internal {
         //zombies.push(Zombie(_name, _dna));
         // and fire it here
-        uint id = zombies.push(Zombie(_name, _dna)) - 1; //zombies.push() returns a uint of the new length of the array while adding the argument to the array zombies.
+        
+        //level = 1 see Zombie struct
+        //readyTime = uint32(now+cooldownTime) see Zombie struct
+        uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now+cooldownTime))) - 1; //zombies.push() returns a uint of the new length of the array (-1) while adding the argument to the array zombies.
         //In Solidity, there are certain global variables that are available to all functions. One of these is msg.sender, which refers to the address of the person (or smart contract) who called the current function.
         zombieToOwner[id] = msg.sender; //atribute ownership of zombie #id to address=msg.sender
         ownerZombieCount[msg.sender]++; //increase zombie count in address=msg.sender

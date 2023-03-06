@@ -74,31 +74,6 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_targetDna",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "_species",
-						"type": "string"
-					}
-				],
-				"name": "feedAndMultiply",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_zombieId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
 						"name": "_kittyId",
 						"type": "uint256"
 					}
@@ -219,6 +194,16 @@
 						"internalType": "uint256",
 						"name": "dna",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "level",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "readyTime",
+						"type": "uint32"
 					}
 				],
 				"payable": false,
@@ -274,17 +259,17 @@
 			]
 		},
 		"zombiefactory.sol": {
-			"keccak256": "0xec45cb92fbd96d105047384d22d70ab90262d58a22b2704682eddb45265da0ad",
+			"keccak256": "0x607307ee403279f63d24be81ea04a9da7188028db2682247cf8e0bf8475dbb7f",
 			"urls": [
-				"bzz-raw://570b1ba4aabbb2866f1a13b91c6e0cb86c024a9309b648ebbef1b990db062eae",
-				"dweb:/ipfs/QmeH8GYh6jKMHxVv2GiTDf9fe4XEvG2Uq77aARudzBrfBN"
+				"bzz-raw://94d05358609d39649a070ad452526eab24b3f22daaea89f33c595dcf6d7cbd48",
+				"dweb:/ipfs/QmNU3afDjuf8Jcy8c67cXtubT497FGdXNeoexYkPSrN6hK"
 			]
 		},
 		"zombiefeeding.sol": {
-			"keccak256": "0xdd86e7052fbb2679919a8acba18dd81a552cf8c67dde8f3ca5839528855484ca",
+			"keccak256": "0x51df14d6b54e3792a948b106f110a5aa5d4a3bd18ad5563bb5e2bb6395b40071",
 			"urls": [
-				"bzz-raw://86631a0563331ecaa3f153aae70d017290fd56c2d233817b4020e9794a979a03",
-				"dweb:/ipfs/QmUE5ShEHCR4WJ99qRYMdK9trGV3BYuc4ygTL4AeN9zc55"
+				"bzz-raw://9022ba12ccbcd761d5afa8b3581935eece571b8ddd1ffb67e52204943c2ccfe9",
+				"dweb:/ipfs/QmTehZuduofznfsZmS3HRUvD144JvP1qrWvMZ9YYqu2QaC"
 			]
 		}
 	},

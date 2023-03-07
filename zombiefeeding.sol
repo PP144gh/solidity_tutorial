@@ -261,6 +261,10 @@ Since we want to limit setKittyContractAddress to onlyOwner, we're going to do t
   // 2. Change this to just a declaration:
   KittyInterface kittyContract;
 
+   modifier ownerOf (uint _zombieId) {
+    require(msg.sender == zombieToOwner[_zombieId]);
+    _;
+  }
 /*
   function renounceOwnership() public onlyOwner {
     emit OwnershipTransferred(_owner, address(0));
@@ -300,13 +304,14 @@ So it's important to remember that just because a DApp is on Ethereum does not a
 
 
   // 1. Make this function internal (only needs to be called by feedOnKitty or else can be exploitable)
-  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal {
-    require(msg.sender == zombieToOwner[_zombieId]);
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string memory _species) internal ownerOf (_zombieId) {
+    //require(msg.sender == zombieToOwner[_zombieId]);
     Zombie storage myZombie = zombies[_zombieId];
     // 2. Add a check for `_isReady` here
     require(_isReady(myZombie));
     _targetDna = _targetDna % dnaModulus;
     uint newDna = (myZombie.dna + _targetDna) / 2;
+    //no way to compare strings directly in solidity, but the hash of a string is unique.
     if (keccak256(abi.encodePacked(_species)) == keccak256(abi.encodePacked("kitty"))) {
       newDna = newDna - newDna % 100 + 99;
     }

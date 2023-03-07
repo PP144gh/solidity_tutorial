@@ -44,6 +44,8 @@ function fiveMinutesHavePassed() public view returns (bool) {
         uint dna;
         uint32 level;
         uint32 readyTime;
+        uint16 winCount; // Note: Remember, since we can pack uints inside structs, we want to use the smallest uints we can get away with. A uint8 is too small, since 2^8 = 256 — if our zombies attacked once per day, they could overflow this within a year. But 2^16 is 65536 — so unless a user wins or loses every day for 179 years straight, we should be safe here.
+        uint16 lossCount;
     }
 
     // Array with a fixed length of 2 elements:
@@ -95,7 +97,7 @@ Call this function like: eatHamburgers("vitalik", 100);
         
         //level = 1 see Zombie struct
         //readyTime = uint32(now+cooldownTime) see Zombie struct
-        uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now+cooldownTime))) - 1; //zombies.push() returns a uint of the new length of the array (-1) while adding the argument to the array zombies.
+        uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now+cooldownTime), 0, 0)) - 1; //zombies.push() returns a uint of the new length of the array (-1) while adding the argument to the array zombies.
         //In Solidity, there are certain global variables that are available to all functions. One of these is msg.sender, which refers to the address of the person (or smart contract) who called the current function.
         zombieToOwner[id] = msg.sender; //atribute ownership of zombie #id to address=msg.sender
         ownerZombieCount[msg.sender]++; //increase zombie count in address=msg.sender

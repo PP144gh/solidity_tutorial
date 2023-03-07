@@ -34,19 +34,77 @@ Let's try making our own modifier that uses the zombie level property to restric
 
 contract ZombieHelper is ZombieFeeding {
 
-  // Start here
+  
+    // 1. Define levelUpFee here
+  uint levelUpFee = 0.001 ether;
+
+
   modifier aboveLevel(uint _level, uint _zombieId) {
   require(zombies[_zombieId].level >= _level);
   _;
   }
+
+
+   // 2. Insert levelUp function here
+  function levelUp (uint _zombieId) external payable {
+    require(msg.value == levelUpFee);
+    zombies[_zombieId].level++;
+  }
+
+  /*
+  Chapter 2: Withdraws
+In the previous chapter, we learned how to send Ether to a contract. So what happens after you send it?
+
+After you send Ether to a contract, it gets stored in the contract's Ethereum account, and it will be trapped there — unless you add a function to withdraw the Ether from the contract.
+
+You can write a function to withdraw Ether from the contract as follows:
+
+contract GetPaid is Ownable {
+  function withdraw() external onlyOwner {
+    address payable _owner = address(uint160(owner()));
+    _owner.transfer(address(this).balance);
+  }
+}
+Note that we're using owner() and onlyOwner from the Ownable contract, assuming that was imported.
+
+It is important to note that you cannot transfer Ether to an address unless that address is of type address payable. But the _owner variable is of type uint160, meaning that we must explicitly cast it to address payable.
+
+Once you cast the address from uint160 to address payable, you can transfer Ether to that address using the transfer function, and address(this).balance will return the total balance stored on the contract. So if 100 users had paid 1 Ether to our contract, address(this).balance would equal 100 Ether.
+
+You can use transfer to send funds to any Ethereum address. For example, you could have a function that transfers Ether back to the msg.sender if they overpaid for an item:
+
+uint itemFee = 0.001 ether;
+msg.sender.transfer(msg.value - itemFee);
+Or in a contract with a buyer and a seller, you could save the seller's address in storage, then when someone purchases his item, transfer him the fee paid by the buyer: seller.transfer(msg.value).
+
+These are some examples of what makes Ethereum programming really cool — you can have decentralized marketplaces like this that aren't controlled by anyone.
+
+
+
+
+  */
+
+   // 1. Create withdraw function here
+  function withdraw() external onlyOwner {
+    address payable _owner = address(uint160(owner()));
+    _owner.transfer(address(this).balance);
+  }
+
+  // 2. Create setLevelUpFee function here
+  function setLevelUpFee (uint _fee) external onlyOwner {
+    levelUpFee = _fee;
+  }
+
+
+
     //calldata: calldata is somehow similar to memory, but it's only available to external functions.
-  function changeName(uint _zombieId, string calldata _newName) external aboveLevel(2, _zombieId) {
-    require(msg.sender == zombieToOwner[_zombieId]);
+  function changeName(uint _zombieId, string calldata _newName) external aboveLevel(2, _zombieId) ownerOf (_zombieId) {
+    //require(msg.sender == zombieToOwner[_zombieId]);
     zombies[_zombieId].name = _newName;
   }
 
-    function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) {
-    require(msg.sender == zombieToOwner[_zombieId]);
+    function changeDna(uint _zombieId, uint _newDna) external aboveLevel(20, _zombieId) ownerOf (_zombieId) {
+    //require(msg.sender == zombieToOwner[_zombieId]);
     zombies[_zombieId].dna = _newDna;
   }
 

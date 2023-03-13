@@ -100,17 +100,17 @@
 			]
 		},
 		"zombiefactory.sol": {
-			"keccak256": "0x607307ee403279f63d24be81ea04a9da7188028db2682247cf8e0bf8475dbb7f",
+			"keccak256": "0xfa458985f10d5c650cf77e36e8b5adbff48f89380c31635cdcb2d0231dfc836d",
 			"urls": [
-				"bzz-raw://94d05358609d39649a070ad452526eab24b3f22daaea89f33c595dcf6d7cbd48",
-				"dweb:/ipfs/QmNU3afDjuf8Jcy8c67cXtubT497FGdXNeoexYkPSrN6hK"
+				"bzz-raw://93de51021f0a30c8fa485de7b432fd4280145dfa6c11ba8b8621fb5d09d2d6ad",
+				"dweb:/ipfs/QmTjmiy3F1rShVBFgcUPi7Gn45LJZUno6MFF4VG13Lk2p6"
 			]
 		},
 		"zombiefeeding.sol": {
-			"keccak256": "0x51df14d6b54e3792a948b106f110a5aa5d4a3bd18ad5563bb5e2bb6395b40071",
+			"keccak256": "0x0c03bb7260c37fd48b8fdf6c264a83d8df83376a8d7d9695886194b7c6d53c1a",
 			"urls": [
-				"bzz-raw://9022ba12ccbcd761d5afa8b3581935eece571b8ddd1ffb67e52204943c2ccfe9",
-				"dweb:/ipfs/QmTehZuduofznfsZmS3HRUvD144JvP1qrWvMZ9YYqu2QaC"
+				"bzz-raw://84dc899575f2bd0820a88fc1734fa8ddd41443efd21556903ccce0646e12b069",
+				"dweb:/ipfs/QmeyT28D6SM7kCFt1WctnS2eMQpgfRbnh1vRAX7SqZaDpi"
 			]
 		}
 	},

@@ -53,7 +53,7 @@ function randMod (uint _modulus) internal returns (uint) {
     return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
 }
 
-function attack(uint _zombieId, uint _targetId) external ownerOf(_zombieId) {
+function attack(uint _zombieId, uint _targetId) external onlyOwnerOf(_zombieId) {
     // 2. Start function definition here
     Zombie storage myZombie = zombies[_zombieId];
     Zombie storage enemyZombie = zombies[_targetId];

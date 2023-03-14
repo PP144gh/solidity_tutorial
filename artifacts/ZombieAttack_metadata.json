@@ -53,6 +53,66 @@
 				"constant": false,
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_targetId",
+						"type": "uint256"
+					}
+				],
+				"name": "attack",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newDna",
+						"type": "uint256"
+					}
+				],
+				"name": "changeDna",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_newName",
+						"type": "string"
+					}
+				],
+				"name": "changeName",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "_name",
 						"type": "string"
@@ -86,6 +146,27 @@
 			},
 			{
 				"constant": true,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "getZombiesByOwner",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
 				"inputs": [],
 				"name": "isOwner",
 				"outputs": [
@@ -97,6 +178,21 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_zombieId",
+						"type": "uint256"
+					}
+				],
+				"name": "levelUp",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -142,12 +238,36 @@
 				"constant": false,
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					}
+				],
+				"name": "setLevelUpFee",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
 				],
 				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "withdraw",
 				"outputs": [],
 				"payable": false,
 				"stateMutability": "nonpayable",
@@ -250,7 +370,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"zombiefeeding.sol": "ZombieFeeding"
+			"zombieattack.sol": "ZombieAttack"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -275,6 +395,13 @@
 				"dweb:/ipfs/QmdNQLietq2e2GkmdQeDTnZ8UrPjyaw5jpgZ3ATxTT8dSd"
 			]
 		},
+		"zombieattack.sol": {
+			"keccak256": "0xdc3b63a27bc8d38fd4d6ec6eb8781367e13331f433a6b428213fcdd9b512c8f8",
+			"urls": [
+				"bzz-raw://3ebb7e7eabc2e5845b81662aa457117f9e5a29f2d53a8fcabda3440d4aa29da1",
+				"dweb:/ipfs/Qmf2QX4PhmJv3MXsDF8aBQcv42M3K2P45N5imfJ2mD9eLp"
+			]
+		},
 		"zombiefactory.sol": {
 			"keccak256": "0x2a3c921c4a3161a0fcb38935f13132f5756503bc320807f417f1644da2a73555",
 			"urls": [
@@ -287,6 +414,13 @@
 			"urls": [
 				"bzz-raw://7b2298b023ea6eddec424807a23712fef2aabc03f998db2ed879a6b790eaae7a",
 				"dweb:/ipfs/QmbffscikKAjSunxkBkZognp9AntFeAFdWR9XawS4ybpxV"
+			]
+		},
+		"zombiehelper.sol": {
+			"keccak256": "0xb7931c696ae5f57b5ac796033f20b76472eaf0836c8f0e365e485894fc374d46",
+			"urls": [
+				"bzz-raw://ec1382b00f61868feae63a8ff4658fd210b43d4bfbb1568ec007f399b6b9281a",
+				"dweb:/ipfs/QmWFD8nj38ME5K51jWzGGzaopRopPWygJ7QK4FjTdkVknf"
 			]
 		}
 	},

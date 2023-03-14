@@ -479,6 +479,7 @@
 			}
 		],
 		"devdoc": {
+			"author": "PP144",
 			"methods": {
 				"isOwner()": {
 					"return": "true if `msg.sender` is the owner of the contract."
@@ -495,14 +496,16 @@
 						"newOwner": "The address to transfer ownership to."
 					}
 				}
-			}
+			},
+			"title": "A contract for erc721 tokens"
 		},
 		"userdoc": {
 			"methods": {
 				"renounceOwnership()": {
 					"notice": "Renouncing to ownership will leave the contract without an owner. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
 				}
-			}
+			},
+			"notice": "For now, this contract just deals with ownership and transfer of erc721 tokens."
 		}
 	},
 	"settings": {
@@ -532,18 +535,25 @@
 				"dweb:/ipfs/QmV1mqW7ejRvXjyCGAcDmofzuot77fWMRXjGsKNXSvGbzn"
 			]
 		},
-		"zombieattack.sol": {
-			"keccak256": "0xcf4bba33710cdec33f36117c0604f97d379e54881967bbe97f1b76d0d3a5f48e",
+		"safemath.sol": {
+			"keccak256": "0x725ba0b93222953651347839348e7469849819967c79eebf1bbcf43557f62b7d",
 			"urls": [
-				"bzz-raw://6720ae4f7dbf68ac7aad24073eec7a375440b247d639dfd5afaf90f8d42670a8",
-				"dweb:/ipfs/QmbqQcz4siJfESHzS4NtNue2yJzE1JeGctoabo5MLMUZnf"
+				"bzz-raw://d61a6a59fd8e29ccf6416804e832256c682c7751fd44bab4c6452190ff4d23dd",
+				"dweb:/ipfs/QmdNQLietq2e2GkmdQeDTnZ8UrPjyaw5jpgZ3ATxTT8dSd"
+			]
+		},
+		"zombieattack.sol": {
+			"keccak256": "0xdc3b63a27bc8d38fd4d6ec6eb8781367e13331f433a6b428213fcdd9b512c8f8",
+			"urls": [
+				"bzz-raw://3ebb7e7eabc2e5845b81662aa457117f9e5a29f2d53a8fcabda3440d4aa29da1",
+				"dweb:/ipfs/Qmf2QX4PhmJv3MXsDF8aBQcv42M3K2P45N5imfJ2mD9eLp"
 			]
 		},
 		"zombiefactory.sol": {
-			"keccak256": "0xfa458985f10d5c650cf77e36e8b5adbff48f89380c31635cdcb2d0231dfc836d",
+			"keccak256": "0x2a3c921c4a3161a0fcb38935f13132f5756503bc320807f417f1644da2a73555",
 			"urls": [
-				"bzz-raw://93de51021f0a30c8fa485de7b432fd4280145dfa6c11ba8b8621fb5d09d2d6ad",
-				"dweb:/ipfs/QmTjmiy3F1rShVBFgcUPi7Gn45LJZUno6MFF4VG13Lk2p6"
+				"bzz-raw://f13211977878af8d87c60f47fbcc6cd750ae600a168080b2c8af869f256ec8d2",
+				"dweb:/ipfs/QmbLr9Yy5XeCVYe116V8fFR5qonQJVaSpw7X1UBGMKx5Uc"
 			]
 		},
 		"zombiefeeding.sol": {
@@ -554,17 +564,17 @@
 			]
 		},
 		"zombiehelper.sol": {
-			"keccak256": "0x7ef6504911d6a3b9e4b50ecd14e336968632d2b73bae4a16a0e5fc5181dbd06a",
+			"keccak256": "0xb7931c696ae5f57b5ac796033f20b76472eaf0836c8f0e365e485894fc374d46",
 			"urls": [
-				"bzz-raw://474636e9ecb67f3406af12bb22e4237fff6b13e2d04a84bec9f7ca6f3a26f07e",
-				"dweb:/ipfs/QmbBSfJgkJNfiyZTUb2zT9rU36gXBv664egPY6zGPBFQRa"
+				"bzz-raw://ec1382b00f61868feae63a8ff4658fd210b43d4bfbb1568ec007f399b6b9281a",
+				"dweb:/ipfs/QmWFD8nj38ME5K51jWzGGzaopRopPWygJ7QK4FjTdkVknf"
 			]
 		},
 		"zombieownership.sol": {
-			"keccak256": "0x3b986a76f64a1754dab4d449c4e05dea1e85948dfdd4340f38b6119aaca4f068",
+			"keccak256": "0x5fa0aef8d204dbb34df351350968c2abb8cbc4b8a981c3bc47de32a1d8d91ada",
 			"urls": [
-				"bzz-raw://b83300e8cb077d8e0ee105b00c40f4bde37cb835ee2c75c219c51a846aaa3b88",
-				"dweb:/ipfs/Qmc4ysM2VwfSJqC4vC3Ms74Suoz45zh79abJ1dv5xF85Ds"
+				"bzz-raw://a62c1e0ca2366673d1180e3017b7840d277aa4f632f1328e88752b6c802a7542",
+				"dweb:/ipfs/QmQz7Hhn9iryEQJ2skMUL1VGf6CLPPktgrXxwTwegXJcm8"
 			]
 		}
 	},

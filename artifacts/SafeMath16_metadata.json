@@ -1,0 +1,39 @@
+{
+	"compiler": {
+		"version": "0.5.14+commit.01f1aaa4"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "SafeMath library implemented for uint16",
+			"methods": {},
+			"title": "SafeMath16"
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"safemath.sol": "SafeMath16"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"safemath.sol": {
+			"keccak256": "0x725ba0b93222953651347839348e7469849819967c79eebf1bbcf43557f62b7d",
+			"urls": [
+				"bzz-raw://d61a6a59fd8e29ccf6416804e832256c682c7751fd44bab4c6452190ff4d23dd",
+				"dweb:/ipfs/QmdNQLietq2e2GkmdQeDTnZ8UrPjyaw5jpgZ3ATxTT8dSd"
+			]
+		}
+	},
+	"version": 1
+}

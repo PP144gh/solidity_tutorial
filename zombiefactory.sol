@@ -2,9 +2,37 @@ pragma solidity >=0.5.0 <0.6.0;
 //pragma solidity 0.8.17;
 
 import "./ownable.sol";
+import "./safemath.sol"; //to handle math operations and avoid over and underflows.
+
+/*
+
+Using SafeMath
+To prevent this, OpenZeppelin has created a library called SafeMath that prevents these issues by default.
+
+But before we get into that... What's a library?
+
+A library is a special type of contract in Solidity. One of the things it is useful for is to attach functions to native data types.
+
+For example, with the SafeMath library, we'll use the syntax using SafeMath for uint256. The SafeMath library has 4 functions — add, sub, mul, and div. And now we can access these functions from uint256 as follows:
+
+using SafeMath for uint256;
+
+uint256 a = 5;
+uint256 b = a.add(3); // 5 + 3 = 8
+uint256 c = a.mul(2); // 5 * 2 = 10
+We'll look at what these functions do in the next chapter, but for now let's add the SafeMath library to our contract.
+
+*/
 
 contract ZombieFactory is Ownable{
 
+  /*
+  First we have the library keyword — libraries are similar to contracts but with a few differences. For our purposes, libraries allow us to use the using keyword, which automatically tacks on all of the library's methods to another data type:
+  */  
+  using SafeMath for uint256;
+  using SafeMath32 for uint32;
+  using SafeMath16 for uint16;
+  
     event NewZombie(uint zombieId, string name, uint dna);
 
 
@@ -100,7 +128,7 @@ Call this function like: eatHamburgers("vitalik", 100);
         uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now+cooldownTime), 0, 0)) - 1; //zombies.push() returns a uint of the new length of the array (-1) while adding the argument to the array zombies.
         //In Solidity, there are certain global variables that are available to all functions. One of these is msg.sender, which refers to the address of the person (or smart contract) who called the current function.
         zombieToOwner[id] = msg.sender; //atribute ownership of zombie #id to address=msg.sender
-        ownerZombieCount[msg.sender]++; //increase zombie count in address=msg.sender
+        ownerZombieCount[msg.sender] = ownerZombieCount[msg.sender].add(1); //increase zombie count in address=msg.sender
         emit NewZombie(id, _name, _dna);
     }
     //convention to start private functions name with _ 

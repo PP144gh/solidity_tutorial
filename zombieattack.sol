@@ -49,7 +49,7 @@ In a future lesson, we may cover using oracles (a secure way to pull data in fro
  uint attackVictoryProbability = 70;
 
 function randMod (uint _modulus) internal returns (uint) {
-    randNonce++;
+    randNonce = randNonce.add(1);
     return uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % _modulus;
 }
 
@@ -59,13 +59,14 @@ function attack(uint _zombieId, uint _targetId) external onlyOwnerOf(_zombieId) 
     Zombie storage enemyZombie = zombies[_targetId];
     uint rand = randMod(100);
     if (rand <= attackVictoryProbability) {
-      myZombie.winCount++;
-      myZombie.level++;
-      enemyZombie.lossCount++;
+      myZombie.winCount = myZombie.winCount.add(1);
+      myZombie.level = myZombie.level.add(1);
+      enemyZombie.lossCount = enemyZombie.lossCount.add(1);
       feedAndMultiply(_zombieId, enemyZombie.dna, "zombie");
     } else {
-        myZombie.lossCount++;
-        enemyZombie.winCount++; //when enemy wins doesnt his level increase? with this code no.
+        myZombie.lossCount = myZombie.lossCount.add(1);
+        //when enemy wins doesnt his level increase? with this code no.
+        enemyZombie.winCount = enemyZombie.winCount.add(1);
         _triggerCooldown(myZombie); //already runs inside feedAndMultiply, so it always runs either win or loss of attacking zombie.
     }
 }
